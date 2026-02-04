@@ -1,18 +1,19 @@
 package np.iims.main;
 
 import org.springframework.context.ApplicationContext;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import np.iims.resources.*;
-import np.iims.beans.*;
+
+import np.iims.beans.Student;
+import np.iims.resources.SpringConfigFile;
 
 public class Main {
 	public static void main(String[] args) {
 		
 		ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfigFile.class);
-		Student std=(Student)context.getBean("stdId1");
-		// alternative of line 12
-		// Student std=(Student)context.getBean(Student.class);
-		System.out.println(std);
+		Student std=(Student)context.getBean(Student.class);
+		
+		std.display();
 	}
 
 }
